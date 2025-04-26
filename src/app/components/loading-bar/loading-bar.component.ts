@@ -9,7 +9,6 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
   selector: 'app-loading-bar',
   standalone: true,
   imports: [
-    NgIf,
     MatProgressSpinnerModule
   ],
   templateUrl: './loading-bar.component.html',
@@ -22,7 +21,6 @@ export class LoadingBarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.isLoading)
     this.loadingService.loading$.subscribe(
       isLoading => this.isLoading = isLoading
     );

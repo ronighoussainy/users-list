@@ -17,7 +17,6 @@ export class LoadingService {
 
   startLoading(): void {
     this.requestCount++;
-    console.log(this.requestCount)
     if (this.requestCount === 1) {
       this.loadingSubject.next(true);
     }
