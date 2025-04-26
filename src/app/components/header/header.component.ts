@@ -30,7 +30,6 @@ export class HeaderComponent implements OnInit {
   searchResults: any = null;
   searchVisible = false;
   private searchSubject = new Subject<number>();
-  searchQuery = '';
 
   constructor(
     private userService: UserService,
@@ -41,22 +40,19 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.searchSubject.pipe(
-      debounceTime(300),
-      distinctUntilChanged(),
       switchMap(id => {
         if (!id) {
           this.searchResults = null;
           return of(null);
         }
-        this.searchQuery = id.toString();
-        return this.userService.searchUserById(id).pipe(
+        return this.userService.getUserById(id).pipe(
           catchError(() => {
-            this.searchResults = null;
             return of(null);
           })
         );
       })
     ).subscribe(result => {
+      console.log(result)
       this.searchResults = result;
       this.searchVisible = true;
     });

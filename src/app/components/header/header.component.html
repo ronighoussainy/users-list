@@ -15,7 +15,7 @@
           (input)="onSearchChange()"
         />
       </mat-form-field>
-      <div class="search-results" *ngIf="searchResults && searchVisible">
+      <div class="search-results" *ngIf=" searchVisible">
         <mat-card class="user-search-result" *ngIf="searchResults">
           <mat-card-content>
             <img [src]="searchResults.avatar" alt="User avatar" class="avatar search-avatar"/>
@@ -26,7 +26,7 @@
             <button mat-raised-button color="primary" (click)="viewUser(searchResults.id)">View</button>
           </mat-card-content>
         </mat-card>
-        <mat-card class="no-results" *ngIf="!searchResults && searchQuery">
+        <mat-card class="no-results" *ngIf="!searchResults ">
           <mat-card-content>
             <p>No user found</p>
           </mat-card-content>

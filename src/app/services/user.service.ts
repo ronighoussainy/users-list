@@ -67,19 +67,4 @@ export class UserService {
       shareReplay(1)
     );
   }
-
-  searchUserById(id: number): Observable<User | null> {
-    // Check if we have the user in cache
-    if (this.userCache.has(id)) {
-      return of(this.userCache.get(id) as User);
-    }
-
-    // If not in cache, fetch from API
-    return this.getUserById(id);
-  }
-
-  clearCache(): void {
-    this.userCache.clear();
-    this.pagesCache.clear();
-  }
 }

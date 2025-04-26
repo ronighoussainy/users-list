@@ -15,6 +15,7 @@ export class LoadingInterceptor implements HttpInterceptor {
   constructor(private loadingService: LoadingService) {
   }
 
+// intercept api calls
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     this.loadingService.startLoading();
 

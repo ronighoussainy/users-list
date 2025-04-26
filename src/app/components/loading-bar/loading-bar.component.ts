@@ -20,6 +20,7 @@ export class LoadingBarComponent implements OnInit {
   constructor(private loadingService: LoadingService) {
   }
 
+// subscribe to loading boolean change to show spinner on screen
   ngOnInit(): void {
     this.loadingService.loading$.subscribe(
       isLoading => this.isLoading = isLoading

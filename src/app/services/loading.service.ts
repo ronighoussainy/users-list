@@ -28,10 +28,4 @@ export class LoadingService {
       this.loadingSubject.next(false);
     }
   }
-
-  // Reset loading state (useful for error scenarios)
-  resetLoading(): void {
-    this.requestCount = 0;
-    this.loadingSubject.next(false);
-  }
 }
