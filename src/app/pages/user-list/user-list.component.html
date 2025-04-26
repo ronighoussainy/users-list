@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="user-list">
+    <h2 class="page-title">User Directory</h2>
+
+    <div class="error-message" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+
+    <div class="user-grid" *ngIf="users.length > 0">
+      <app-user-card
+        *ngFor="let user of users"
+        [user]="user"
+        class="user-card-wrapper"
+      ></app-user-card>
+    </div>
+
+    <div class="empty-state" *ngIf="users.length === 0 && !errorMessage">
+      <p>No users found</p>
+    </div>
+
+    <app-pagination
+      *ngIf="totalPages > 0"
+      [currentPage]="currentPage"
+      [totalPages]="totalPages"
+      (pageChange)="onPageChange($event)"
+    ></app-pagination>
+  </div>
+</div>

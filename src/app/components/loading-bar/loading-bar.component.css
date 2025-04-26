@@ -1,0 +1,25 @@
+
+.loading-screen {
+  position: fixed;
+  top: -80px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 9999;
+  background-color: RGBA(0, 0, 0, 0.5);
+}
+
+.loading-screen .loading-gif {
+  margin-left: 50%;
+  margin-top: 25%;
+}
+
+.loader {
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid #accbf4;
+  width: 40px;
+  height: 40px;
+  -webkit-animation: loading-spin 2s linear infinite; /* Safari */
+  animation: loading-spin 2s linear infinite;
+}

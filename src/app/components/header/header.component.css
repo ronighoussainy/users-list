@@ -1,0 +1,98 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo a {
+  text-decoration: none;
+  color: white;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.search-container {
+  margin-top:20px;
+  position: relative;
+  width: 300px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  margin-top: 8px;
+  z-index: 10;
+}
+
+.user-search-result {
+  margin-bottom: 8px;
+}
+
+::ng-deep.mdc-text-field--filled {
+  height: 56px !important;
+}
+
+mat-card-content {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+}
+
+.search-avatar {
+  width: 40px;
+  height: 40px;
+  margin-right: 16px;
+  border-radius: 50%;
+}
+
+.user-info {
+  flex: 1;
+}
+
+.user-name {
+  font-weight: 500;
+  margin: 0;
+}
+
+.user-id {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.875rem;
+  margin: 4px 0 0;
+}
+
+.no-results {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .logo {
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .search-container {
+    width: 100%;
+  }
+}

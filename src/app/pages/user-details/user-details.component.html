@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="user-details slide-in-up">
+    <button mat-button color="primary" class="back-button" (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+      Back to Users
+    </button>
+
+    <div class="error-message" *ngIf="errorMessage">
+      {{ errorMessage }}
+      <button mat-raised-button color="warn" (click)="loadUser()">Try Again</button>
+    </div>
+
+    <mat-card class="user-profile" *ngIf="user">
+      <mat-card-content>
+        <div class="user-header">
+          <div class="user-avatar">
+            <img [src]="user.avatar" [alt]="user.first_name + ' ' + user.last_name" class="avatar">
+          </div>
+          <div class="user-title">
+            <mat-card-title>{{ user.first_name }} {{ user.last_name }}</mat-card-title>
+            <mat-card-subtitle class="user-id">User ID: {{ user.id }}</mat-card-subtitle>
+          </div>
+        </div>
+
+        <div class="user-body">
+          <mat-card class="info-card">
+            <mat-card-title>Contact Information</mat-card-title>
+            <mat-card-content>
+              <div class="info-item">
+                <span class="label">Email:</span>
+                <span class="value">{{ user.email }}</span>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

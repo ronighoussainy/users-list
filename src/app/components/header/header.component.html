@@ -1,0 +1,37 @@
+<mat-toolbar color="primary" class="header">
+  <div class="container header-container">
+    <div class="logo">
+      <a [routerLink]="['/']">
+        <h1>User Directory</h1>
+      </a>
+    </div>
+    <div class="search-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Search user by ID</mat-label>
+        <input
+          matInput
+          type="number"
+          [(ngModel)]="searchId"
+          (input)="onSearchChange()"
+        />
+      </mat-form-field>
+      <div class="search-results" *ngIf="searchResults && searchVisible">
+        <mat-card class="user-search-result" *ngIf="searchResults">
+          <mat-card-content>
+            <img [src]="searchResults.avatar" alt="User avatar" class="avatar search-avatar"/>
+            <div class="user-info">
+              <p class="user-name">{{ searchResults.first_name }} {{ searchResults.last_name }}</p>
+              <p class="user-id">ID: {{ searchResults.id }}</p>
+            </div>
+            <button mat-raised-button color="primary" (click)="viewUser(searchResults.id)">View</button>
+          </mat-card-content>
+        </mat-card>
+        <mat-card class="no-results" *ngIf="!searchResults && searchQuery">
+          <mat-card-content>
+            <p>No user found</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,34 @@
+<div class="pagination">
+  <button
+    mat-icon-button
+    [disabled]="currentPage === 1"
+    (click)="onPageChange(currentPage - 1)"
+    color="primary"
+  >
+    <mat-icon>chevron_left</mat-icon>
+  </button>
+
+  <div class="page-numbers">
+    <ng-container *ngFor="let page of getPageNumbers()">
+      <button
+        *ngIf="typeof page === 'number'"
+        mat-button
+        [color]="page === currentPage ? 'primary' : ''"
+        [class.current]="page === currentPage"
+        (click)="onPageChange(page)"
+      >
+        {{ page }}
+      </button>
+      <span *ngIf="page === '...'" class="dots">...</span>
+    </ng-container>
+  </div>
+
+  <button
+    mat-icon-button
+    [disabled]="currentPage === totalPages"
+    (click)="onPageChange(currentPage + 1)"
+    color="primary"
+  >
+    <mat-icon>chevron_right</mat-icon>
+  </button>
+</div>

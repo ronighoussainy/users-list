@@ -1,0 +1,12 @@
+<mat-card class="user-card" [routerLink]="['/user', user.id]">
+  <mat-card-content>
+    <div class="user-avatar">
+      <img [src]="user.avatar" [alt]="user.first_name + ' ' + user.last_name" class="avatar">
+    </div>
+    <div class="user-info">
+      <mat-card-title class="user-name">{{ user.first_name }} {{ user.last_name }}</mat-card-title>
+      <mat-card-subtitle class="user-email">{{ user.email }}</mat-card-subtitle>
+      <p class="user-id">ID: {{ user.id }}</p>
+    </div>
+  </mat-card-content>
+</mat-card>
